@@ -1,10 +1,10 @@
-# .net AWS-CDK GitHub Actions
+# AWS-CDK GitHub Action for .NET
 
-.net AWS-CDK GitHub Actions allow you to run `cdk deploy` and `cdk diff` and ... on your pull requests to help you review.
+GitHub Action allow you to run AWS-CDK commands such as `cdk deploy` and `cdk diff`. This Action is designed to work with .NET.
 
 ## Supported language
 
-- csharp
+- .NET 8.0
 
 ## Example usage
 
@@ -17,7 +17,7 @@ jobs:
     steps:
 
       - name: cdk diff
-        uses: P47Phoenix/dotnet-cdk-action@v1
+        uses: modelve/dotnet-cdk-action@v1
         with:
           cdk_subcommand: 'diff'
           actions_comment: true
@@ -27,7 +27,7 @@ jobs:
           AWS_DEFAULT_REGION: 'ap-northeast-1'
 
       - name: cdk deploy
-        uses: P47Phoenix/dotnet-cdk-action@v1
+        uses: modelve/dotnet-cdk-action@v1
         with:
           cdk_subcommand: 'deploy'
           cdk_stack: 'stack1'
@@ -39,7 +39,7 @@ jobs:
           AWS_DEFAULT_REGION: 'ap-northeast-1'
 
       - name: cdk synth
-        uses: P47Phoenix/dotnet-cdk-action@v1
+        uses: modelve/dotnet-cdk-action@v1
         with:
           cdk_subcommand: 'synth'
           cdk_version: '1.16.2'
@@ -99,10 +99,3 @@ jobs:
 - `GITHUB_TOKEN` Required for `actions_comment=true`
 
 Recommended to get `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` from secrets. A github token is [automatically made available](https://help.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token) as a secret as `GITHUB_TOKEN`. 
-
-## License
-
-[MIT](LICENSE)
-
-## Credits
-Borrowed heavily from [youyo/aws-cdk-github-actions](https://github.com/youyo/aws-cdk-github-actions)
